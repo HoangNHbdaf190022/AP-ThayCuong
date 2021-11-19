@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Student_Management_System
 {
-    public class Person
+    class Person
     {
         public string name { get; set; }
         public DateTime dob { get; set; }
@@ -13,3 +13,4 @@ namespace Student_Management_System
 
     }
 }
+

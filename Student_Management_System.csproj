@@ -5,4 +5,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="DemoLinQ.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="DemoLinQ.cs" />
+  </ItemGroup>
+
 </Project>

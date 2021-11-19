@@ -7,10 +7,13 @@ namespace Student_Management_System
 {
     class Lecturer : Person
     {
-        int id;
-        string department;
+        //attributes & get-set attributes
+        public string id { get; set; }
+        public string department { get; set; }
 
-        public Lecturer(int id, string name, DateTime dob, string email, string address, string department)
+        //constructor
+        public Lecturer() { }
+        public Lecturer(string id, string name, DateTime dob, string email, string address, string department)
         {
             this.id = id;
             this.name = name;
@@ -19,14 +22,20 @@ namespace Student_Management_System
             this.address = address;
             this.department = department;
         }
+        //display
         public string DisplayLecturer()
         {
             return ("Lecturer id: " + id +
-                "\nLecturer name: " + name +
-                "\nDob: " + dob.ToString("dd/MM/yyyy") +
-                "\nEmail: " + email +
-                "\nAddress: " + address +
-                "\nDepartment: " + department);
+                    "\nLecturer name: " + name +
+                    "\nDob: " + dob.ToString("dd/MM/yyyy") +
+                    "\nEmail: " + email +
+                    "\nAddress: " + address +
+                    "\nDepartment: " + department);
         }
+
     }
 }
+
+
+
+
