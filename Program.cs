@@ -61,15 +61,23 @@ namespace Student_Management_System
                                     {
                                         Console.WriteLine("Create a new student");
                                         Console.WriteLine("=====================");
-                                        Console.Write("Student id: ");
                                         //check the number of characters entered 
                                         const int idMax = 6;
-                                        string id = Console.ReadLine();
-                                        if (id.Length > idMax)
+                                        string id ;
+                                        while (true)
                                         {
-                                            id = id.Substring(0, idMax);
-                                            Console.WriteLine("*Shortened to 6 characters!\n");
-                                        }                                     
+                                            Console.Write("Student id: ");
+                                            id = Console.ReadLine();
+                                            if (id.Length > idMax)
+                                            {
+                                                id = id.Substring(0, idMax);
+                                                Console.WriteLine("*Shortened to 6 characters!\n");
+                                                break;
+                                            }
+                                            else if (id.Length == idMax) break;
+                                            else { Console.WriteLine("*Please enter enough 6 characters"); }
+                                        }
+                                       
                                         Console.Write("Student name: ");
                                         string name = Console.ReadLine();
                                         Console.Write("Date of birth: ");
@@ -160,9 +168,8 @@ namespace Student_Management_System
                                 }
                                 catch
                                 {
-                                    Console.WriteLine("Notice: Please check the input data!" +
-                                      "\nMaybe you enter characters instead of numbers" +
-                                      " or maybe you entered the wrong date of birth");
+                                    ErrorNotify er = new ErrorNotify();
+                                    er.checkInput();
                                 }
                             }
 
@@ -193,15 +200,23 @@ namespace Student_Management_System
                                     {
                                         Console.WriteLine("Create a new lecturer");
                                         Console.WriteLine("=====================");
-                                        Console.Write("Lecturer id: ");
-                                        string id = Console.ReadLine();
                                         //check the number of characters entered 
                                         const int idMax = 6;
-                                        if (id.Length > idMax)
+                                        string id;
+                                        while (true)
                                         {
-                                            id = id.Substring(0, idMax);
-                                            Console.WriteLine("*Shortened to 6 characters!\n");
+                                            Console.Write("Lecturer id: ");
+                                            id = Console.ReadLine();
+                                            if (id.Length > idMax)
+                                            {
+                                                id = id.Substring(0, idMax);
+                                                Console.WriteLine("*Shortened to 6 characters!\n");
+                                                break;
+                                            }
+                                            else if (id.Length == idMax) break;
+                                            else { Console.WriteLine("*Please enter enough 6 characters"); }
                                         }
+
                                         Console.Write("Lecturer name: ");
                                         string name = Console.ReadLine();
                                         Console.Write("Date of birth: ");
@@ -293,9 +308,8 @@ namespace Student_Management_System
                                 }
                                 catch
                                 {
-                                    Console.WriteLine("Notice: Please check the input data!" +
-                                    "\nMaybe you enter characters instead of numbers" +
-                                    " or maybe you entered the wrong date of birth\n");
+                                    ErrorNotify er = new ErrorNotify();
+                                    er.checkInput();
                                 }
                             }
                             Console.Clear();
@@ -305,9 +319,8 @@ namespace Student_Management_System
                         default: Console.WriteLine("Notice: Wrong key, please re-enter!\n"); break;
                     }
                 }catch {
-                    Console.WriteLine("Not numder! Press 0 to continue");
-                    int tt = int.Parse(Console.ReadLine());
-                    if (tt == 0) { Console.Clear(); }
+                    ErrorNotify not = new ErrorNotify();
+                    not.notNum(); 
                 }
             }
         }
